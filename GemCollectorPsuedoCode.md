@@ -18,12 +18,12 @@ BELOW "HOW TO PLAY":
 - right of screen in "shadow box" WIN/LOSE count. Number of wins will be set from ARRAY OF NUMBERS (0-4), and number of losses will be set from (0-3)
 
 BELOW SCORE BOARDS:
-- 4 GEM BUTTONS, each gem button will have a value of the following: ARRAY OF NUMBERS (1, 3, 12, & 5) 
+- 4 GEM BUTTONS, each gem button will have a random value between (0-50). Each gem will have a value randomization each game.
 - GEMS WILL BE
-    - DIAMOND (1pt)
-    - EMERALD (12pts)
-    - RUBY (5pts)
-    - SAPPHIRE (2pts)
+    - DIAMOND 
+    - EMERALD 
+    - RUBY 
+    - SAPPHIRE 
 
 
 CREATE FOOTER BANNER WITH RESULTS OF GAME:
