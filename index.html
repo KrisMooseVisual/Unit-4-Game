@@ -17,25 +17,52 @@
 <body>
     <!--Used calculator jumbotron as reference-->
     <div class="jumbotron">
-        <h1 class="text-center">Welcome to</h1>
-        <h3 class="text-center">Jim's Gem Collector!</h3>
+        <h3 class="text-center">Welcome to</h3>
+        <h1 class="text-center">Jim's Gem Collector!</h1>
     </div>
 
-    <p>
-        <ul>
-            <li>You'll be given a number to match.</li>
-            <li>Click on any of the crystals below to reveal a point/s</li>
-            <li>Each crystal has a hidden value until you click on it.</li>
-            <li>Match your total score to the number provided and you win!</li>
-            <li>Miss match 3 times, you lose the game!</li>
-            <li>Win 5 times and you win the game!</li>
-        </ul>
-    </p>
+    <div class="howToPlay">
+        <center>
+            <h2>
+                <ul>
+                    <p>•You'll be given a number to match.</p>
+                    <p>•Click on any of the crystals below to reveal a point/s</p>
+                    <p>•Each crystal has a hidden value until you click on it.</p>
+                    <p>•Match your total score to the number provided and you win!</p>
+                    <p>•Miss match 3 times, you lose the game!</p>
+                    <p>•Win 5 times and you win the game!</p>
+                </ul>
+            </h2>
+        </center>
+    </div>
+
+    <div id="match"></div>
+    <div>
+        <p id="matchThis-text">
+            <h2 class="text-left">Match This:</h2>
+        </p>
+        <!--INSERT RANDOMIZED NUMBER HERE-->
+        <p>____</p>
+    </div>
+
+    <div id="score"></div>
+    <div>
+        <p id="yourScore-text">
+            <h2 class="text-center">Your Score:</h2>
+        </p>
+    </div>
+
+    <div id="win-lose"></div>
+    <div>
+        <p id="wins-text">
+            <h2>Wins:<h2>
+        </p>
+
+        <p id="losses-text">
+            <h2>Losses:</h2>
+        </p>
+    </div>
 
     <!--END HTML-->
 
-    <script type="text/javascript"></script>
-
-</body>
-
-</html>
+    <script type="text/javascript"> </script> </body> </html>
