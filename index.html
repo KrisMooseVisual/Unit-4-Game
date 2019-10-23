@@ -16,11 +16,25 @@
             background-color: blue;
         }
 
+        h3 {
+            font-size: 40pt;
+            color: rgb(5, 117, 5);
+            font-weight: bold;
+            text-align: center;
+        }
+
+        h4 {
+            font-size: 20pt;
+            color: rgb(187, 3, 3);
+            font-weight: bold;
+            text-align: center;
+        }
+
         body {
             background-color: black;
         }
 
-        .gems-image {
+        .gems {
             width: 100px;
             height: 100px;
         }
@@ -44,24 +58,28 @@
             <h3>•How To Play•</h3>
             </br>
             <ol>
-                <li>You'll be given a random number when you start the game.<span>"Number To Match</span>
-                </li>
+                <h4>
+                    <li>•You'll be given a random number when you start the game.<span>"Number To Match</span>
+                    </li>
+                </h4>
 
-                <li>Click on one of the 4 Gems below.</li>
-                <ul>
-                    <li id="diamondButton">Diamond (White)</li>
-                    <li id="rubyButton">Ruby (Red)</li>
-                    <li id="citrineButton">Citrine (Yellow)</li>
-                    <li id="sapphireButton">Sapphire (Blue)</li>
-                </ul>
-                <!--Will set size and color of font as it gets lostin the background-->
-                <li>Each crystal has a hidden value until you click on it.
-                </li>
-                <li>Match your total score to the random number provided and you win!
-                </li>
-                <li>• Miss match 3 times, you lose the game!
-                </li>
-                <li>• Win 5 times and you win the game!</li>
+                <h4>
+                    <li>•Click on one of the 4 Gems below.</li>
+                    <ul>
+                        <li id="diamondButton">• Diamond (White)</li>
+                        <li id="rubyButton">• Ruby (Red)</li>
+                        <li id="citrineButton">• Citrine (Yellow)</li>
+                        <li id="sapphireButton">• Sapphire (Blue)</li>
+                    </ul>
+                    <!--Will set size and color of font as it gets lostin the background-->
+                    <li>• Each crystal has a hidden value until you click on it.
+                    </li>
+                    <li>• Match your total score to the random number provided and you win!
+                    </li>
+                    <li>• Miss match 3 times, you lose the game!
+                    </li>
+                    <li>• Win 5 times and you win the game!</li>
+                </h4>
 
 
             </ol>
@@ -82,6 +100,11 @@
                 Losses:
                 <span id="yourLosses"></span></h2>
         </div>
+        <div class="playerTotal">
+            <h2>Your Final Score Is:
+                <span id="finalScore"></span>
+            </h2>
+        </div>
     </center>
 
 
@@ -92,11 +115,7 @@
         <img src="assets/images/sapphireButton.gif" class=gemGif id="fourth" alt="Sapphire Gem">
     </div>
 
-    <div class="playerTotal">
-        <h2>Your Final Score Is:
-            <span id="finalScore"></span>
-        </h2>
-    </div>
+
 
     <!--~~~~~~~~~Starting JS~~~~~~~~~~~-->
 
@@ -106,7 +125,7 @@
 
         //Randomized number hopefully to be set between 15 - 199
         // FOUND FLAW IN FUNCTION! WAS MISSING ()
-        $(document).ready(function(){
+        $(document).ready(function () {
             var Random = Math.floor(Math.random() * 200 + 15)
 
             //attach to randomized number to "number-to-match" in the HTML section
@@ -154,51 +173,51 @@
                 $('#yourWins'.text(wins);
                 reset();
             }
-            function losing(){
-                alert ("YOU LOST...LEWHOO...SUHERR!")
+            function losing() {
+                alert("YOU LOST...LEWHOO...SUHERR!")
                 losses++;
                 $('#yourLosses').text(losses);
                 reset()
             }
             //Gem clicks for points using num1-num4
-            $("#first").on('click', function(){
+            $("#first").on('click', function () {
                 playerTotal = playerTotal + num1;
                 console.log("playerTotal")
                 //win or lose outcomes
-                if (playerTotal == Random){
+                if (playerTotal == Random) {
                     winning();
                 }
-                else if (playerTotal > Random){
+                else if (playerTotal > Random) {
                     losing();
                 }
 
-                $("#second").on('click', function(){
-                playerTotal = playerTotal + num2;
-                if (playerTotal == Random){
-                    winning();
-                }
-                else if (playerTotal > Random){
-                    losing();
-                }
+                $("#second").on('click', function () {
+                    playerTotal = playerTotal + num2;
+                    if (playerTotal == Random) {
+                        winning();
+                    }
+                    else if (playerTotal > Random) {
+                        losing();
+                    }
 
-                $("#third").on('click', function(){
-                playerTotal = playerTotal + num3;
-                if (playerTotal == Random){
-                    winning();
-                }
-                else if (playerTotal > Random){
-                    losing();
-                }
+                    $("#third").on('click', function () {
+                        playerTotal = playerTotal + num3;
+                        if (playerTotal == Random) {
+                            winning();
+                        }
+                        else if (playerTotal > Random) {
+                            losing();
+                        }
 
-                $("#fourth").on('click', function(){
-                playerTotal = playerTotal + num1;
-                if (playerTotal == Random){
-                    winning();
-                }
-                else if (playerTotal > Random){
-                    losing();
-                }
-            }
+                        $("#fourth").on('click', function () {
+                            playerTotal = playerTotal + num1;
+                            if (playerTotal == Random) {
+                                winning();
+                            }
+                            else if (playerTotal > Random) {
+                                losing();
+                            }
+                        }
 
 
         }
@@ -213,5 +232,5 @@
 
 
 </body>
-//HTML BROKEN AND CANT FIND OUT WHY
+
 </html>

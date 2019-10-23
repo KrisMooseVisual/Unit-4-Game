@@ -1,4 +1,6 @@
 $(document).ready(function(){
+    //SIDE NOTE... REALIZED I HAD TO FILL OUT MY .js DOCUMENT. Code still broken with Braces "curly brackets" at the end.
+
     var Random = Math.floor(Math.random() * 200 + 15)
 
     //attach to randomized number to "number-to-match" in the HTML section

@@ -1,11 +1,31 @@
-.attr {
-    float: right;
-    width:33.33%;
-    padding: 5px;
+h1 {
+    background-color: red;
+
 }
 
-.attr :after {
-    content:"diamondButton.jpg";
-    clear: both;
-    display: table;
+h2 {
+    background-color: blue;
+}
+
+h3 {
+    font-size: 40pt;
+    color: rgb(5, 117, 5);
+    font-weight: bold;
+    text-align: center;
+}
+
+h4 {
+    font-size: 20pt;
+    color: rgb(187, 3, 3);
+    font-weight: bold;
+    text-align: center;
+}
+
+body {
+    background-color: black;
+}
+
+.gems {
+    width: 100px;
+    height: 100px;
 }
