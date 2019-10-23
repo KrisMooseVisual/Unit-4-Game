@@ -1,0 +1,11 @@
+.attr {
+    float: right;
+    width:33.33%;
+    padding: 5px;
+}
+
+.attr :after {
+    content:"diamondButton.jpg";
+    clear: both;
+    display: table;
+}

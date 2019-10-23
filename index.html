@@ -5,71 +5,157 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Gem Collector</title>
+    <title>Jim's Gem Collector</title>
+    <style type="text/css">
+        h1 {
+            background-color: red;
 
-    <!-- jQuery added-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <!--Bootstrap added-->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+        }
+
+        h2 {
+            background-color: blue;
+        }
+
+        body {
+            background-color: black;
+        }
+
+        .gems-image {
+            width: 100px;
+            height: 100px;
+        }
+    </style>
 
 </head>
 
-<body>
-    <!--Used calculator jumbotron as reference-->
-    <div class="jumbotron">
-        <h3 class="text-center">Welcome to</h3>
-        <h1 class="text-center">Jim's Gem Collector!</h1>
-    </div>
+
+
+<body background="assets/images/01 Jims Gem Collector Background.jpg">
+
+
+    <center>
+        <div class="header">
+            <h1>Welcome to Jim's Gem Collector!</h1>
+        </div>
+    </center>
 
     <div class="howToPlay">
         <center>
-            <h4>
+            <h3>•How To Play•</h3>
+            </br>
+            <ol>
+                <li>You'll be given a random number when you start the game.<span>"Number To Match</span>
+                </li>
+
+                <li>Click on of the 4 crystals below.</li>
                 <ul>
-                    <p>•You'll be given a number to match.</p>
-                    <p>•Click on any of the crystals below to reveal a point/s</p>
-                    <p>•Each crystal has a hidden value until you click on it.</p>
-                    <p>•Match your total score to the number provided and you win!</p>
-                    <p>•Miss match 3 times, you lose the game!</p>
-                    <p>•Win 5 times and you win the game!</p>
+                    <li id="diamondButton">Diamond</li>
+                    <li id="rubyButton">Ruby</li>
+                    <li id="emeraldButton">Emerald</li>
+                    <li id="sapphireButton">Sapphire</li>
                 </ul>
-            </h4>
+<!--Will set size and color of font as it gets lostin the background-->
+                <li>Each crystal has a hidden value until you click on it.
+                </li>
+                <li>Match your total score to the random number provided and you win!
+                </li>
+                <li>• Miss match 3 times, you lose the game!
+                </li>
+                <li>• Win 5 times and you win the game!</li>
+
+
+            </ol>
         </center>
+
     </div>
 
-    <div id="match"></div>
-    <div>
-        <p id="matchThis-text">
-            <h2 class="text-left">Match This:</h2>
-        </p>
-        <!--INSERT RANDOMIZED NUMBER HERE-->
-        <p>72</p>
+    <center>
+
+        <h2>Number To Match:
+            <span id="number-to-match"></span></h2>
+
+        <h2>Your Number:
+            <span id="your-number"></span></h2>
+
+        <h2>Wins:
+            <span id="your-wins"></span></h2>
+
+        <h2>Losses:
+            <span id="your-losses"></span></h2>
+
+    </center>
+
+
+
+    <!--div to be filled in-->
+    <div id="gems">
+
     </div>
 
-    <div id="score"></div>
-    <div>
-        <p id="yourScore-text">
-            <h2 class="text-center">Your Score:</h2>
-        </p>
-    </div>
-
-    <div id="win-lose"></div>
-    <div>
-        <p id="wins-text">
-            <h2>Wins:<h2>
-        </p>
-
-        <p id="losses-text">
-            <h2>Losses:</h2>
-        </p>
-    </div>
-
-    <!--END HTML-->
-    <script type="text/javascript"> </script> 
 
 
 
-</body> 
 
 
+    <!--~~~~~~~~~Starting JS~~~~~~~~~~~-->
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <script type="text/javascript">
+        // number used, will try to randomize
+        var matchingNumber = 56;
+
+        $("your-number").text(matchingNumber);
+
+        var counter = 0;
+        // array of numbers that i'll try to randomize each round for each gem.
+        var gemNumbers = [9, 20, 2, 3];
+
+        //setting loop for gem pics using gemNumbers
+        for (var i = 0; i < gemNumbers.length; i++) {
+
+            var gemImages = $("<img>");
+
+
+            //class set for gemImages
+            gemImages.addClass("gem-image");
+
+            //photo finally worked! But need only one. It now has 4 of the same images
+            gemImages.attr("src", "https://media.giphy.com/media/xUA7aUNSe18p3tac5W/giphy.gif");
+
+
+            //this will be for the array value
+            gemImages.attr("data-valueGem", gemNumbers)[i];
+
+            $("#gems").append(gemImages);
+        }
+
+        $(".gem-image").on("click", function () {
+
+            var gemValue = ($(this).attr("data-gemvalue"));
+            gemValue = parseInt(gemValue);
+            //setting counter
+            counter += gemValue;
+
+            alert("Your Number: " + counter);
+
+            if (counter === matchingNumber) {
+                alert("YOU WIN!");
+            }
+
+            else if (counter >= matchingNumber) {
+                alert("YOU LOSE!");
+            }
+        });
+    </script>
+
+
+
+
+
+
+
+
+</body>
 
 </html>
