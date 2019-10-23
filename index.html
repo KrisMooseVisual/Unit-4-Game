@@ -47,14 +47,14 @@
                 <li>You'll be given a random number when you start the game.<span>"Number To Match</span>
                 </li>
 
-                <li>Click on of the 4 crystals below.</li>
+                <li>Click on one of the 4 Gems below.</li>
                 <ul>
                     <li id="diamondButton">Diamond</li>
                     <li id="rubyButton">Ruby</li>
-                    <li id="emeraldButton">Emerald</li>
+                    <li id="citrineButton">Citrine</li>
                     <li id="sapphireButton">Sapphire</li>
                 </ul>
-<!--Will set size and color of font as it gets lostin the background-->
+                <!--Will set size and color of font as it gets lostin the background-->
                 <li>Each crystal has a hidden value until you click on it.
                 </li>
                 <li>Match your total score to the random number provided and you win!
@@ -70,83 +70,40 @@
     </div>
 
     <center>
+        <div class="numberToGet">
+            <h2>Number To Match:
+                <span id="number-to-match"></span></h2>
+        </div>
 
-        <h2>Number To Match:
-            <span id="number-to-match"></span></h2>
-
-        <h2>Your Number:
-            <span id="your-number"></span></h2>
-
-        <h2>Wins:
-            <span id="your-wins"></span></h2>
-
-        <h2>Losses:
-            <span id="your-losses"></span></h2>
-
+        <div class="winsLosses">
+            <h2>Wins:
+                <span id="your-wins"></span>
+                </br>
+                Losses:
+                <span id="your-losses"></span></h2>
+        </div>
     </center>
 
 
-
-    <!--div to be filled in-->
-    <div id="gems">
-
+    <div class="gems">
+        <img src="assets/images/diamondButton.gif" class=gemGif id="first" alt="Diamond Gem">
+        <img src="assets/images/citrineButton.gif" class=gemGif id="second" alt="Citrine Gem">
+        <img src="assets/images/rubyButton.gif" class=gemGif id="third" alt="Ruby Gem">
+        <img src="assets/images/sapphireButton.gif" class=gemGif id="fourth" alt="Sapphire Gem">
     </div>
 
+    <div class="playerTotal">
+        <h2>Your Final Score Is:
+            <span id="finalScore"></span>
+        </h2>
+    </div>
 
-
-
-
-
-    <!--~~~~~~~~~Starting JS~~~~~~~~~~~-->
+        <!--~~~~~~~~~Starting JS~~~~~~~~~~~-->
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="assets/javascript/game.js">
+//Something went wrong! Java wasn't doing what I wanted... reevaluating and redoing!
 
-    <script type="text/javascript">
-        // number used, will try to randomize
-        var matchingNumber = 56;
-
-        $("your-number").text(matchingNumber);
-
-        var counter = 0;
-        // array of numbers that i'll try to randomize each round for each gem.
-        var gemNumbers = [9, 20, 2, 3];
-
-        //setting loop for gem pics using gemNumbers
-        for (var i = 0; i < gemNumbers.length; i++) {
-
-            var gemImages = $("<img>");
-
-
-            //class set for gemImages
-            gemImages.addClass("gem-image");
-
-            //photo finally worked! But need only one. It now has 4 of the same images
-            gemImages.attr("src", "https://media.giphy.com/media/xUA7aUNSe18p3tac5W/giphy.gif");
-
-
-            //this will be for the array value
-            gemImages.attr("data-valueGem", gemNumbers)[i];
-
-            $("#gems").append(gemImages);
-        }
-
-        $(".gem-image").on("click", function () {
-
-            var gemValue = ($(this).attr("data-gemvalue"));
-            gemValue = parseInt(gemValue);
-            //setting counter
-            counter += gemValue;
-
-            alert("Your Number: " + counter);
-
-            if (counter === matchingNumber) {
-                alert("YOU WIN!");
-            }
-
-            else if (counter >= matchingNumber) {
-                alert("YOU LOSE!");
-            }
-        });
     </script>
 
 
