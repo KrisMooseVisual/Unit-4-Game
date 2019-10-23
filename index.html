@@ -49,10 +49,10 @@
 
                 <li>Click on one of the 4 Gems below.</li>
                 <ul>
-                    <li id="diamondButton">Diamond</li>
-                    <li id="rubyButton">Ruby</li>
-                    <li id="citrineButton">Citrine</li>
-                    <li id="sapphireButton">Sapphire</li>
+                    <li id="diamondButton">Diamond (White)</li>
+                    <li id="rubyButton">Ruby (Red)</li>
+                    <li id="citrineButton">Citrine (Yellow)</li>
+                    <li id="sapphireButton">Sapphire (Blue)</li>
                 </ul>
                 <!--Will set size and color of font as it gets lostin the background-->
                 <li>Each crystal has a hidden value until you click on it.
@@ -77,10 +77,10 @@
 
         <div class="winsLosses">
             <h2>Wins:
-                <span id="your-wins"></span>
+                <span id="yourWins"></span>
                 </br>
                 Losses:
-                <span id="your-losses"></span></h2>
+                <span id="yourLosses"></span></h2>
         </div>
     </center>
 
@@ -98,11 +98,110 @@
         </h2>
     </div>
 
-        <!--~~~~~~~~~Starting JS~~~~~~~~~~~-->
+    <!--~~~~~~~~~Starting JS~~~~~~~~~~~-->
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript" src="assets/javascript/game.js">
-//Something went wrong! Java wasn't doing what I wanted... reevaluating and redoing!
+        //Something went wrong! Java wasn't doing what I wanted... reevaluating and redoing!
+
+        //Randomized number hopefully to be set between 15 - 199
+        // FOUND FLAW IN FUNCTION! WAS MISSING ()
+        $(document).ready(function(){
+            var Random = Math.floor(Math.random() * 200 + 15)
+
+            //attach to randomized number to "number-to-match" in the HTML section
+            $('#number-to-match').text(Random);
+
+            //Setting random number for each gem. changed random number span from 1-30
+            var num1 = Math.floor(Math.random() * 31 + 1)
+            var num2 = Math.floor(Math.random() * 31 + 1)
+            var num3 = Math.floor(Math.random() * 31 + 1)
+            var num4 = Math.floor(Math.random() * 31 + 1)
+
+            //set variable wins losses and player total points
+            var playerTotal = 0;
+            var wins = 0;
+            var losses = 0;
+
+            //variables to tally declaration
+            $('#yourWins').text(wins);
+            $('#yourLosses').text(losses);
+
+            //reset function to reset game after each win/loss
+
+            function reset() {
+                Random = Math.floor(Math.random() * 200 + 15);
+                console.log(Random)
+                //not gettin result from console.log
+
+                //randomizing gem values
+                $('#number-to-match').text(Random);
+                num1 = Math.floor(Math.random() * 31 + 1);
+                num2 = Math.floor(Math.random() * 31 + 1);
+                num3 = Math.floor(Math.random() * 31 + 1);
+                num4 = Math.floor(Math.random() * 31 + 1);
+
+                //players total should populate
+                playerTotal = 0;
+                $('#finalScore').text(playerTotal);
+
+            }
+
+            //set winning and losing function alerts (would like to use a banner or gif of Ryu/Ken winning, or baby crying gif if you lose)
+            function winning() {
+                alert("YOU WIN... PERFECT!");
+                wins++;
+                $('#yourWins'.text(wins);
+                reset();
+            }
+            function losing(){
+                alert ("YOU LOST...LEWHOO...SUHERR!")
+                losses++;
+                $('#yourLosses').text(losses);
+                reset()
+            }
+            //Gem clicks for points using num1-num4
+            $("#first").on('click', function(){
+                playerTotal = playerTotal + num1;
+                console.log("playerTotal")
+                //win or lose outcomes
+                if (playerTotal == Random){
+                    winning();
+                }
+                else if (playerTotal > Random){
+                    losing();
+                }
+
+                $("#second").on('click', function(){
+                playerTotal = playerTotal + num2;
+                if (playerTotal == Random){
+                    winning();
+                }
+                else if (playerTotal > Random){
+                    losing();
+                }
+
+                $("#third").on('click', function(){
+                playerTotal = playerTotal + num3;
+                if (playerTotal == Random){
+                    winning();
+                }
+                else if (playerTotal > Random){
+                    losing();
+                }
+
+                $("#fourth").on('click', function(){
+                playerTotal = playerTotal + num1;
+                if (playerTotal == Random){
+                    winning();
+                }
+                else if (playerTotal > Random){
+                    losing();
+                }
+            }
+
+
+        }
 
     </script>
 
@@ -114,5 +213,5 @@
 
 
 </body>
-
+//HTML BROKEN AND CANT FIND OUT WHY
 </html>
