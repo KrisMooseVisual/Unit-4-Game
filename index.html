@@ -6,224 +6,127 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Jim's Gem Collector</title>
-    <style type="text/css">
-        h1 {
-            background-color: red;
 
-        }
-
-        h2 {
-            background-color: blue;
-        }
-
-        h3 {
-            font-size: 40pt;
-            color: rgb(5, 117, 5);
-            font-weight: bold;
-            text-align: center;
-        }
-
-        h4 {
-            font-size: 20pt;
-            color: rgb(187, 3, 3);
-            font-weight: bold;
-            text-align: center;
-        }
-
-        body {
-            background-color: black;
-        }
-
-        .gems {
-            width: 100px;
-            height: 100px;
-        }
-    </style>
-
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
 </head>
 
 
 
 <body background="assets/images/01 Jims Gem Collector Background.jpg">
-
-
     <center>
-        <div class="header">
+        <div class="jumbotron">
             <h1>Welcome to Jim's Gem Collector!</h1>
+
+            <h3>•How To Play•</h3>
+            <hr>
+
+            <h6>
+                <p>•You'll be given a random number when you start the game•
+                </p>
+            </h6>
+
+            <h6>
+                <p>•Click on one of the 4 Gems below•</p>
+                <!--Will set size and color of font as it gets lostin the background-->
+                <li>Each crystal has a hidden value until you click on it.
+                </li>
+                <li>Match your total score to the random number provided and you win!
+                </li>
+                <li>Miss match 3 times, you lose the game!
+                </li>
+                <li>Win 5 times and you win the game!</li>
+            </h6>
+            <hr>
+
+            <div id="numberToMatch">
+                <h2>
+                    <script>
+                        var min = 1;
+                        var max = 100;
+                        var random =
+                            Math.floor(Math.random() * (+max - +min)) + +min;
+                        document.write("Number To Match : " + random);
+                    </script>
+                </h2>
+            </div>
+
+            <div class="yourWins">
+                <h2>Wins:0</h2>
+            </div>
+
+            <div class="yourLosses">
+                <h2>Losses:0</h2>
+            </div>
+
+            <div id="currentScore">
+                <h2>Your Score Is:0</h2>
+            </div>
+
         </div>
     </center>
-
-    <div class="howToPlay">
-        <center>
-            <h3>•How To Play•</h3>
-            </br>
-            <ol>
-                <h4>
-                    <li>•You'll be given a random number when you start the game.<span>"Number To Match</span>
-                    </li>
-                </h4>
-
-                <h4>
-                    <li>•Click on one of the 4 Gems below.</li>
-                    <ul>
-                        <li id="diamondButton">• Diamond (White)</li>
-                        <li id="rubyButton">• Ruby (Red)</li>
-                        <li id="citrineButton">• Citrine (Yellow)</li>
-                        <li id="sapphireButton">• Sapphire (Blue)</li>
-                    </ul>
-                    <!--Will set size and color of font as it gets lostin the background-->
-                    <li>• Each crystal has a hidden value until you click on it.
-                    </li>
-                    <li>• Match your total score to the random number provided and you win!
-                    </li>
-                    <li>• Miss match 3 times, you lose the game!
-                    </li>
-                    <li>• Win 5 times and you win the game!</li>
-                </h4>
-
-
-            </ol>
-        </center>
-
-    </div>
 
     <center>
-        <div class="numberToGet">
-            <h2>Number To Match:
-                <span id="number-to-match"></span></h2>
-        </div>
+        <div class="gemGif">
 
-        <div class="winsLosses">
-            <h2>Wins:
-                <span id="yourWins"></span>
-                </br>
-                Losses:
-                <span id="yourLosses"></span></h2>
-        </div>
-        <div class="playerTotal">
-            <h2>Your Final Score Is:
-                <span id="finalScore"></span>
-            </h2>
+            <div class="row">
+
+                <div class="col-md-3 thumb">
+                    <img src="assets/images/diamondButton.gif" class=gemGif alt="Diamond Gem">
+                    <button id="first" class="btn-light col text-center">Diamond</button>
+                </div>
+
+                <div class="col-3">
+                    <img src="assets/images/citrineButton.gif" class=gemGif alt="Citrine Gem">
+                    <button id="second" class="btn-warning col text-center">Citrine</button>
+                </div>
+
+                <div class="col-3">
+                    <img src="assets/images/rubyButton.gif" class=gemGif alt="Ruby Gem">
+                    <button id="third" class="btn-danger col text-center">Ruby</button>
+                </div>
+
+                <div class="col-3">
+                    <img src="assets/images/sapphireButton.gif" class=gemGif alt="Sapphire Gem">
+                    <button id="fourth" class="btn-primary col text-center">Sapphire</button>
+                </div>
+
+            </div>
         </div>
     </center>
-
-
-    <div class="gems">
-        <img src="assets/images/diamondButton.gif" class=gemGif id="first" alt="Diamond Gem">
-        <img src="assets/images/citrineButton.gif" class=gemGif id="second" alt="Citrine Gem">
-        <img src="assets/images/rubyButton.gif" class=gemGif id="third" alt="Ruby Gem">
-        <img src="assets/images/sapphireButton.gif" class=gemGif id="fourth" alt="Sapphire Gem">
-    </div>
-
+    <br>
+    <br>
+    <hr>
 
 
     <!--~~~~~~~~~Starting JS~~~~~~~~~~~-->
 
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script type="text/javascript" src="assets/javascript/game.js">
-        //Something went wrong! Java wasn't doing what I wanted... reevaluating and redoing!
+    <script src="/assets/javascript/game.js"></script>
 
-        //Randomized number hopefully to be set between 15 - 199
-        // FOUND FLAW IN FUNCTION! WAS MISSING ()
-        $(document).ready(function () {
-            var Random = Math.floor(Math.random() * 200 + 15)
-
-            //attach to randomized number to "number-to-match" in the HTML section
-            $('#number-to-match').text(Random);
-
-            //Setting random number for each gem. changed random number span from 1-30
-            var num1 = Math.floor(Math.random() * 31 + 1)
-            var num2 = Math.floor(Math.random() * 31 + 1)
-            var num3 = Math.floor(Math.random() * 31 + 1)
-            var num4 = Math.floor(Math.random() * 31 + 1)
-
-            //set variable wins losses and player total points
-            var playerTotal = 0;
-            var wins = 0;
-            var losses = 0;
-
-            //variables to tally declaration
-            $('#yourWins').text(wins);
-            $('#yourLosses').text(losses);
-
-            //reset function to reset game after each win/loss
-
-            function reset() {
-                Random = Math.floor(Math.random() * 200 + 15);
-                console.log(Random)
-                //not gettin result from console.log
-
-                //randomizing gem values
-                $('#number-to-match').text(Random);
-                num1 = Math.floor(Math.random() * 31 + 1);
-                num2 = Math.floor(Math.random() * 31 + 1);
-                num3 = Math.floor(Math.random() * 31 + 1);
-                num4 = Math.floor(Math.random() * 31 + 1);
-
-                //players total should populate
-                playerTotal = 0;
-                $('#finalScore').text(playerTotal);
-
-            }
-
-            //set winning and losing function alerts (would like to use a banner or gif of Ryu/Ken winning, or baby crying gif if you lose)
-            function winning() {
-                alert("YOU WIN... PERFECT!");
-                wins++;
-                $('#yourWins'.text(wins);
-                reset();
-            }
-            function losing() {
-                alert("YOU LOST...LEWHOO...SUHERR!")
-                losses++;
-                $('#yourLosses').text(losses);
-                reset()
-            }
-            //Gem clicks for points using num1-num4
-            $("#first").on('click', function () {
-                playerTotal = playerTotal + num1;
-                console.log("playerTotal")
-                //win or lose outcomes
-                if (playerTotal == Random) {
-                    winning();
-                }
-                else if (playerTotal > Random) {
-                    losing();
-                }
-
-                $("#second").on('click', function () {
-                    playerTotal = playerTotal + num2;
-                    if (playerTotal == Random) {
-                        winning();
-                    }
-                    else if (playerTotal > Random) {
-                        losing();
-                    }
-
-                    $("#third").on('click', function () {
-                        playerTotal = playerTotal + num3;
-                        if (playerTotal == Random) {
-                            winning();
-                        }
-                        else if (playerTotal > Random) {
-                            losing();
-                        }
-
-                        $("#fourth").on('click', function () {
-                            playerTotal = playerTotal + num1;
-                            if (playerTotal == Random) {
-                                winning();
-                            }
-                            else if (playerTotal > Random) {
-                                losing();
-                            }
-                        }
-
-
+    <style type="text/css">
+        img {
+            border-radius: 50%;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 5px;
+            width: 100px;
         }
 
-    </script>
+        .gemGif {
+            height: 90%;
+            width: 90%;
 
+        }
+    </style>
 
 
 

@@ -1,98 +1,86 @@
-$(document).ready(function(){
-    //SIDE NOTE... REALIZED I HAD TO FILL OUT MY .js DOCUMENT. Code still broken with Braces "curly brackets" at the end.
+//Variables
+var gem = {
+    diamond:
+    {
+        name: "diamond",
+        value: 0
+    },
+    citrine:
+    {
+        name: "citrine",
+        value: 0
+    },
+    ruby:
+    {
+        name: "ruby",
+        value: 0
+    },
+    sapphire:
+    {
+        name: "sapphire",
+        value: 0
+    },
 
-    var Random = Math.floor(Math.random() * 200 + 15)
+};
 
-    //attach to randomized number to "number-to-match" in the HTML section
-    $('#number-to-match').text(Random);
+// SCORES
+var numberToMatch = 0;
+var currentScore = 0;
 
-    //Setting random number for each gem. changed random number span from 1-30
-    var num1 = Math.floor(Math.random() * 31 + 1)
-    var num2 = Math.floor(Math.random() * 31 + 1)
-    var num3 = Math.floor(Math.random() * 31 + 1)
-    var num4 = Math.floor(Math.random() * 31 + 1)
+//Wins and losses
+var yourLosses = 0;
+var yourWins = 0;
 
-    //set variable wins losses and player total points
-    var playerTotal = 0;
-    var wins = 0;
-    var losses = 0;
-
-    //variables to tally declaration
-    $('#yourWins').text(wins);
-    $('#yourLosses').text(losses);
-
-    //reset function to reset game after each win/loss
-
-    function reset() {
-        Random = Math.floor(Math.random() * 200 + 15);
-        console.log(Random)
-        //not gettin result from console.log
-
-        //randomizing gem values
-        $('#number-to-match').text(Random);
-        num1 = Math.floor(Math.random() * 31 + 1);
-        num2 = Math.floor(Math.random() * 31 + 1);
-        num3 = Math.floor(Math.random() * 31 + 1);
-        num4 = Math.floor(Math.random() * 31 + 1);
-
-        //players total should populate
-        playerTotal = 0;
-        $('#finalScore').text(playerTotal);
-
-    }
-
-    //set winning and losing function alerts (would like to use a banner or gif of Ryu/Ken winning, or baby crying gif if you lose)
-    function winning() {
-        alert("YOU WIN... PERFECT!");
-        wins++;
-        $('#yourWins'.text(wins);
-        reset();
-    }
-    function losing(){
-        alert ("YOU LOST...LEWHOO...SUHERR!")
-        losses++;
-        $('#yourLosses').text(losses);
-        reset()
-    }
-    //Gem clicks for points using num1-num4
-    $("#first").on('click', function(){
-        playerTotal = playerTotal + num1;
-        console.log("playerTotal")
-        //win or lose outcomes
-        if (playerTotal == Random){
-            winning();
-        }
-        else if (playerTotal > Random){
-            losing();
-        }
-
-        $("#second").on('click', function(){
-        playerTotal = playerTotal + num2;
-        if (playerTotal == Random){
-            winning();
-        }
-        else if (playerTotal > Random){
-            losing();
-        }
-
-        $("#third").on('click', function(){
-        playerTotal = playerTotal + num3;
-        if (playerTotal == Random){
-            winning();
-        }
-        else if (playerTotal > Random){
-            losing();
-        }
-
-        $("#fourth").on('click', function(){
-        playerTotal = playerTotal + num1;
-        if (playerTotal == Random){
-            winning();
-        }
-        else if (playerTotal > Random){
-            losing();
-        }
-    }
-
-
+//START UP FUNCTIONS
+var getRandom = function(min, max) {
+    return Math.floor(Math.random() * (max + min + 1)) + min;
 }
+
+var startGame = function() {
+    var currentScore = 0;
+
+    targetScore = getRandom(19, 120);
+
+    gem.diamond.value = getRandom(1, 12);
+    gem.citrine.value = getRandom(1, 12);
+    gem.ruby.value = getRandom(1, 12);
+    gem.sapphire.value = getRandom(1, 12);
+}
+
+
+//ONCLICKS
+$("#first").click(function(){
+    alert("test");
+});
+$("#second").click(function(){
+    alert("test");
+});
+$("#third").click(function(){
+    alert("test");
+});
+$("#fourth").click(function(){
+    alert("test");
+});
+
+
+
+{/* <button onclick="document.getElementById ('Diamond Gem').src = 'assets/images/diamondButton.gif' ">Click For Number</button>
+
+var random
+consol.log("random")
+Math.floor(Math.random() * 101) + 1;
+function getRndInteger(min, max) {
+    return Math.floor(Math.random() * (max - min)) + min;
+}
+
+var min = 1;
+var max = 100;
+var random =
+    Math.floor(Math.random() * (+max - +min)) + +min;
+document.write("number-to-match : " + random); */}
+
+
+
+
+
+
